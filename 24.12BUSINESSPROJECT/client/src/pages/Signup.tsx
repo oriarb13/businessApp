@@ -82,176 +82,185 @@ const SignUp = () => {
     }
   };
 
-
   return (
-    <div className="max-w-md p-6 mx-auto bg-white rounded-lg shadow-lg">
-      <h2 className="mb-4 text-xl font-bold">Sign Up</h2>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-200">
+      <header className="py-4 text-white bg-blue-500">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl font-bold">Find Your Perfect Business</h1>
+          <p className="mt-2 text-lg">
+            Discover businesses tailored to your needs
+          </p>
+        </div>
+      </header>
 
-      <div className="mb-4">
-        <label htmlFor="username" className="block text-gray-700">
-          Username
-        </label>
-        <Input
-          id="username"
-          type="text"
-          placeholder="Enter your username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="mt-1"
-        />
-        {usernameError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{usernameError}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700">
-          Email
-        </label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mt-1"
-        />
-        {emailError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{emailError}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="password" className="block text-gray-700">
-          Password
-        </label>
-        <div className="relative">
+      <main className="container p-6 mx-auto">
+        <section className="mb-12 text-center">
+          <h2 className="mb-4 text-2xl font-semibold">Welcome</h2>
+          <p className="text-lg">
+            this site is your go-to platform for finding and connecting with
+            businesses around you. Join now to explore a world of opportunities!
+          </p>
+        </section>{" "}
+        <h2 className="mb-4 text-xl font-bold">Sign Up</h2>
+        <div className="mb-4">
+          <label htmlFor="username" className="block text-gray-700">
+            Username
+          </label>
           <Input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id="username"
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="mt-1"
           />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute text-gray-500 right-2 top-2"
-          >
-            {showPassword ? <FiEyeOff /> : <FiEye />}
-          </button>
+          {usernameError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{usernameError}</p>
+            </div>
+          )}
         </div>
-        {passwordError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{passwordError}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="confirmPassword" className="block text-gray-700">
-          Confirm Password
-        </label>
-        <div className="relative">
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700">
+            Email
+          </label>
           <Input
-            id="confirmPassword"
-            type={showConfirmPassword ? "text" : "password"}
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="mt-1"
           />
-          <button
-            type="button"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            className="absolute text-gray-500 right-2 top-2"
-          >
-            {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
-          </button>
+          {emailError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{emailError}</p>
+            </div>
+          )}
         </div>
-        {confirmPasswordError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{confirmPasswordError}</p>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700">
+            Password
+          </label>
+          <div className="relative">
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute text-gray-500 right-2 top-2"
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="plan" className="block text-gray-700">
-          Plan
-        </label>
-        <RadioGroup
-          value={plan}
-          onValueChange={(newValue) =>
-            setPlan(newValue as "Standard" | "Gold" | "Platinum")
-          }
-          className="flex flex-row justify-center mt-2"
-        >
-          <div className="flex items-center space-x-4">
-            <RadioGroupItem value="Standard" id="r1" />
-            <Label htmlFor="r1" className="text-gray-700">
-              Standard
-            </Label>
+          {passwordError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{passwordError}</p>
+            </div>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="confirmPassword" className="block text-gray-700">
+            Confirm Password
+          </label>
+          <div className="relative">
+            <Input
+              id="confirmPassword"
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="mt-1"
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute text-gray-500 right-2 top-2"
+            >
+              {showConfirmPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
-          <div className="flex items-center space-x-4">
-            <RadioGroupItem value="Gold" id="r2" />
-            <Label htmlFor="r2" className="text-gray-700">
-              Gold
-            </Label>
-          </div>
-          <div className="flex items-center space-x-4">
-            <RadioGroupItem value="Platinum" id="r3" />
-            <Label htmlFor="r3" className="text-gray-700">
-              Platinum
-            </Label>
-          </div>
-        </RadioGroup>
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="image" className="block text-gray-700">
-          Profile Image
-        </label>
-        <Input
-          id="image"
-          type="url"
-          placeholder="Enter image URL"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-          className="mt-1"
-        />
-        {imageError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{imageError}</p>
-          </div>
-        )}
-      </div>
-
-      <div>
-        <Button onClick={handleSubmit} className="w-full">
-          Sign Up
-        </Button>
-      </div>
-
-      <div className="flex justify-between mt-4">
-        <Button
-          onClick={() => navigate("/login")}
-          variant="link"
-          className="w-full ml-2 text-center"
-        >
-          Already have an account? Log In
-        </Button>
-      </div>
+          {confirmPasswordError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{confirmPasswordError}</p>
+            </div>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="plan" className="block text-gray-700">
+            Plan
+          </label>
+          <RadioGroup
+            value={plan}
+            onValueChange={(newValue) =>
+              setPlan(newValue as "Standard" | "Gold" | "Platinum")
+            }
+            className="flex flex-row justify-center mt-2"
+          >
+            <div className="flex items-center space-x-4">
+              <RadioGroupItem value="Standard" id="r1" />
+              <Label htmlFor="r1" className="text-gray-700">
+                Standard
+              </Label>
+            </div>
+            <div className="flex items-center space-x-4">
+              <RadioGroupItem value="Gold" id="r2" />
+              <Label htmlFor="r2" className="text-gray-700">
+                Gold
+              </Label>
+            </div>
+            <div className="flex items-center space-x-4">
+              <RadioGroupItem value="Platinum" id="r3" />
+              <Label htmlFor="r3" className="text-gray-700">
+                Platinum
+              </Label>
+            </div>
+          </RadioGroup>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="image" className="block text-gray-700">
+            Profile Image
+          </label>
+          <Input
+            id="image"
+            type="url"
+            placeholder="Enter image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            className="mt-1"
+          />
+          {imageError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{imageError}</p>
+            </div>
+          )}
+        </div>
+        <div>
+          <Button onClick={handleSubmit} className="w-full">
+            Sign Up
+          </Button>
+        </div>
+        <div className="flex justify-between mt-4">
+          <Button
+            onClick={() => navigate("/login")}
+            variant="link"
+            className="w-full ml-2 text-center"
+          >
+            Already have an account? Log In
+          </Button>
+        </div>
+      </main>
     </div>
   );
 };

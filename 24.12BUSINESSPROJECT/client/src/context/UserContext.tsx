@@ -51,17 +51,16 @@ export const UserProvider = ({ children }: UserProviderProps) => {
   // Function to login as guest
   const loginAsGuest = () => {
     setUser(null);
-    setIsGuest(true);
     navigate("/home");
   };
 
   // check token
   const checkTokenValidity = async () => {
-    try {
-      await validateToken();
-    } catch (error) {
-      console.error("Invalid token", error);
-      if (!isGuest) {
+    if (user) {
+      try {
+        await validateToken();
+      } catch (error) {
+        console.error("Invalid token", error);
         alert("Your session has expired. Please log in again.");
         setUser(null);
         navigate("/login");

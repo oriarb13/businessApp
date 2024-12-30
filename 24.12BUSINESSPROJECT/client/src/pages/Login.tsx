@@ -46,94 +46,108 @@ const Login = () => {
     try {
       const data = await signInUser(email, password);
       console.log(data);
-      navigate("/profile");
+      navigate("/home");
     } catch (error) {
       console.error("Error signing in:", error);
     }
   };
 
   const handleGuest = () => {
-    loginAsGuest();
+    loginAsGuest()
+    // navigate("/home");
   };
 
   return (
-    <div className="max-w-md p-6 mx-auto bg-white rounded-lg shadow-lg">
-      <h2 className="mb-4 text-xl font-bold">Sign In</h2>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-200">
+      <header className="py-4 text-white bg-blue-500">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl font-bold">Find Your Perfect Business</h1>
+          <p className="mt-2 text-lg">
+            Discover businesses tailored to your needs
+          </p>
+        </div>
+      </header>
 
-      <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700">
-          Email
-        </label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mt-1"
-        />
-        {emailError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{emailError}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="password" className="block text-gray-700">
-          Password
-        </label>
-        <div className="relative">
+      <main className="container p-6 mx-auto">
+        <section className="mb-12 text-center">
+          <h2 className="mb-4 text-2xl font-semibold">Welcome</h2>
+          <p className="text-lg">
+            this site is your go-to platform for finding and connecting with
+            businesses around you. Join now to explore a world of opportunities!
+          </p>
+        </section>{" "}
+        <h2 className="mb-4 text-xl font-bold">Sign In</h2>
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700">
+            Email
+          </label>
           <Input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="mt-1"
           />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute text-gray-500 right-2 top-2"
-          >
-            {showPassword ? <FiEyeOff /> : <FiEye />}
-          </button>
+          {emailError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{emailError}</p>
+            </div>
+          )}
         </div>
-        {passwordError && (
-          <div className="flex items-center mt-1 text-sm text-red-600">
-            <MdError className="mr-2" />
-            <p>{passwordError}</p>
+        <div className="mb-4">
+          <label htmlFor="password" className="block text-gray-700">
+            Password
+          </label>
+          <div className="relative">
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute text-gray-500 right-2 top-2"
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
-        )}
-      </div>
-
-      <div>
-        <Button onClick={handleSubmit} className="w-full">
-          Sign In
-        </Button>
-      </div>
-
-      <div className="mt-4 text-center">
-        <Button
-          variant="link"
-          onClick={() => navigate("/")}
-          className="text-blue-500 hover:underline"
-        >
-          Don't have an account? Sign Up
-        </Button>
-      </div>
-
-      <div className="mt-2 text-center">
-        <Button
-          variant="link"
-          onClick={handleGuest}
-          className="text-gray-600 hover:underline"
-        >
-          Enter as a Guest
-        </Button>
-      </div>
+          {passwordError && (
+            <div className="flex items-center mt-1 text-sm text-red-600">
+              <MdError className="mr-2" />
+              <p>{passwordError}</p>
+            </div>
+          )}
+        </div>
+        <div>
+          <Button onClick={handleSubmit} className="w-full">
+            Sign In
+          </Button>
+        </div>
+        <div className="mt-4 text-center">
+          <Button
+            variant="link"
+            onClick={() => navigate("/")}
+            className="text-blue-500 hover:underline"
+          >
+            Don't have an account? Sign Up
+          </Button>
+        </div>
+        <div className="mt-2 text-center">
+          <Button
+            variant="link"
+            onClick={handleGuest}
+            className="text-gray-600 hover:underline"
+          >
+            Enter as a Guest
+          </Button>
+        </div>
+      </main>
     </div>
   );
 };
