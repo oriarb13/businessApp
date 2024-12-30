@@ -1,0 +1,27 @@
+
+
+/* src/pages/NotFound.css */
+.not-found {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .not-found h1 {
+    font-size: 3rem;
+    color: red; 
+  }
+  
+  .back-home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:red
+    ;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .back-home-btn:hover {
+    background-color:red;
+  }
+  
